@@ -1,0 +1,21 @@
+body {
+    display: flex;
+
+    justify-content: center;
+    padding: 0 30%;
+}
+
+#app {
+    width: 40%;
+    margin: auto;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    flex-grow: 1
+}
+
+#app>* {
+    margin: 0 10px;
+}
