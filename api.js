@@ -23,9 +23,19 @@ app.use(body_parser.json());
 
 app.get("/:shortcode", async (request, response) => {
   const id = as_decimal(request.params.shortcode);
-  const entry = await read_entry(id);
 
-  response.redirect(301, entry.url);
+  if (isNaN(id)) {
+    response.status(400).send(`I can't understand the shortcode ${request.params.shortcode}!`);
+    return
+  }
+
+  try {
+    const entry = await read_entry(id);
+    response.redirect(301, entry.url);
+  } catch {
+    response.status(404).send(`I can't find a url for ${request.params.shortcode}!`)
+  }
+
   return;
 });
 
