@@ -20,6 +20,7 @@ const url_field_must = [
 ];
 
 app.use(body_parser.json());
+app.use("/", express.static("frontend"))
 
 app.get("/:shortcode", async (request, response) => {
   const id = as_decimal(request.params.shortcode);
