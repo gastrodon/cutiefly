@@ -1,0 +1,12 @@
+services:
+    cutiefly:
+        image: gastrodon/cutiefly
+        
+        build:
+            context: .
+
+        ports:
+            - "80:8000"
+
+        environment:
+            CUTIEFLY_HOST: "http://cfly.io"
